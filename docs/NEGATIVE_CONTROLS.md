@@ -13,5 +13,10 @@ These must be actively blocked:
 | CI green → production authorization           | BLOCK             |
 | AFTER state → retroactive authorization       | BLOCK             |
 | temporary memory → durable authorization      | BLOCK             |
+| missing required component without valid degraded path | BLOCK |
+| degraded mode creating new authority          | BLOCK             |
+| degraded mode expanding action scope          | BLOCK             |
+| stale substitute evidence                     | REVALIDATE / BLOCK |
+| unknown critical state                        | BLOCK             |
 
 Any implementation that permits the above is non-compliant with V3-0002.

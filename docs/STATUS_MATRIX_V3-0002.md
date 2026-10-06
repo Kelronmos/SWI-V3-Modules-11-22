@@ -12,7 +12,8 @@
 | Runtime Match                     | YES     | NO          | NO     | NO     | NO     | NO         | NO         |
 | Expected Match Drift              | YES     | NO          | NO     | NO     | NO     | NO         | NO         |
 | Material Change / Revalidation    | YES     | NO          | NO     | NO     | NO     | NO         | NO         |
-| Fail-Closed                       | YES     | NO          | NO     | NO     | NO     | NO         | NO         |
+| Fail-Closed (canonical)           | YES     | NO          | NO     | NO     | NO     | NO         | NO         |
+| Degraded Path Control             | YES     | NO          | NO     | NO     | NO     | NO         | NO         |
 | Execution Binding                 | YES     | NO          | NO     | NO     | NO     | NO         | NO         |
 | Post-Operation Reconciliation     | YES     | NO          | NO     | NO     | NO     | NO         | NO         |
 | Durable Record / Validation Ledger| YES     | NO          | NO     | NO     | NO     | NO         | NO         |
