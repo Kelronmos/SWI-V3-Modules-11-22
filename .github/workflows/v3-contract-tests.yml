@@ -1,0 +1,27 @@
+name: V3 Contract Tests
+
+on:
+  push:
+    branches:
+      - v3-0002-architecture-baseline
+  pull_request:
+    branches:
+      - v3-0002-architecture-baseline
+
+jobs:
+  contract-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install test dependencies
+        run: pip install -r requirements-dev.txt
+      - name: Run contract tests
+        run: python -m pytest -v
+      - name: Remind status discipline
+        run: |
+          echo "CI green means TEST EXECUTION PASSED."
+          echo "It does NOT mean SWI AUTHORIZED or PRODUCTION READY."
