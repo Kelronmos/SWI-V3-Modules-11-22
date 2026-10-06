@@ -8,7 +8,10 @@ import importlib.util
 
 
 def _module_exists(name: str) -> bool:
-    return importlib.util.find_spec(name) is not None
+    try:
+        return importlib.util.find_spec(name) is not None
+    except (ModuleNotFoundError, ValueError):
+        return False
 
 
 class TestRuntimeAbsence:
