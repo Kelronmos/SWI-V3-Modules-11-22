@@ -12,15 +12,14 @@
 | Runtime Match                     | YES     | NO          | NO     | NO     | NO     | NO         | NO         |
 | Expected Match Drift              | YES     | NO          | NO     | NO     | NO     | NO         | NO         |
 | Material Change / Revalidation    | YES     | NO          | NO     | NO     | NO     | NO         | NO         |
-| Fail-Closed (canonical)           | YES     | NO          | NO     | NO     | NO     | NO         | NO         |
-| Degraded Path Control             | YES     | NO          | NO     | NO     | NO     | NO         | NO         |
+| Fail-Closed                       | YES     | NO          | NO     | NO     | NO     | NO         | NO         |
 | Execution Binding                 | YES     | NO          | NO     | NO     | NO     | NO         | NO         |
 | Post-Operation Reconciliation     | YES     | NO          | NO     | NO     | NO     | NO         | NO         |
 | Durable Record / Validation Ledger| YES     | NO          | NO     | NO     | NO     | NO         | NO         |
 | Contract Tests                    | YES     | NO          | NO     | NO     | NO     | NO         | NO         |
 | CI Gate                           | NO      | NO          | NO     | NO     | NO     | NO         | NO         |
 
-**Overall V3-0002**
+**Overall V3-0002 / V3-0003**
 
 - PROVEN = NO
 - SEALED = NO

@@ -1,99 +1,196 @@
-# SWI V3 Canonical Fail-Closed Rules
+# SWI Canonical Fail-Closed Rules
 
-**Status:** DEFINED  
-**PROVEN:** NO  
-**SEALED:** NO  
-**AUTHORIZED:** NO  
-**PRODUCTION_AUTHORIZED:** NO
-
-## Canonical Invariant
+## Status
 
 ```
-FAIL_CLOSED(a, state) ⇔
-    ANY_REQUIRED_PRECONDITION_UNSATISFIED
-    OR CRITICAL_STATE_UNKNOWN
-    OR REQUIRED_EVIDENCE_INVALID
-    OR REQUIRED_EVIDENCE_STALE
-    OR MATERIAL_CHANGE_UNREVALIDATED
-    OR RUNTIME_MATCH_INVALID
-    OR INTEGRITY_INVALID
-    OR FLOW_BINDING_INVALID
-    OR HUMAN_AUTHORITY_UNBOUND
-    OR AUTHORIZATION_INVALID
-    OR REQUIRED_COMPONENT_MISSING_WITHOUT_VALID_DEGRADED_PATH
+DEFINED: YES
+IMPLEMENTED: NO
+TESTED: NO
+PROVEN: NO
+SEALED: NO
+AUTHORIZED: NO
+PRODUCTION_AUTHORIZED: NO
 ```
 
-When FAIL_CLOSED evaluates true:
+## Purpose
 
-- DO NOT EXECUTE
-- Apply the appropriate response: BLOCK / PAUSE / REVALIDATE
-- PRESERVE the failure state
-- REQUIRE the defined recovery condition before any continuation
+This document is the canonical fail-closed contract for SWI V3.
 
-## Response Distinction
+Subsystems may define failure triggers, but they MUST NOT create independent or conflicting fail-closed doctrines.
 
-| Response    | Meaning |
-|-------------|--------|
-| **BLOCK**   | Execution prohibited. Recovery requires satisfying a missing prerequisite. |
-| **PAUSE**   | Execution interrupted pending a defined revalidation/recovery decision. |
-| **REVALIDATE** | Existing authorization cannot safely continue; relevant state/evidence/environment/binding has changed or become uncertain. |
+## Canonical Rule
 
-Common rule: **NO VALID EXECUTION while any fail-closed condition remains unsatisfied.**
+Execution MUST NOT continue when any critical execution prerequisite is:
 
-## Hierarchy
+- unsatisfied;
+- unknown;
+- stale;
+- invalid;
+- materially changed without revalidation;
+- integrity-compromised;
+- runtime-mismatched;
+- flow-unbound;
+- authority-unbound; or
+- unauthorized.
+
+The system MUST enter the applicable controlled response:
+
+- BLOCK
+- PAUSE
+- REVALIDATE
+
+No valid execution may continue while the unresolved fail-closed condition remains.
+
+## Response Semantics
+
+**BLOCK**  
+Execution is prohibited because a required condition is absent, invalid, or unauthorized.
+
+**PAUSE**  
+Execution is interrupted pending a defined recovery or revalidation decision.
+
+**REVALIDATE**  
+Previously acceptable state can no longer be relied upon because a relevant condition changed, became stale, or became uncertain.
+
+REVALIDATE does not itself authorize execution.
+
+## Required-Component Rule
 
 ```
-DOMAIN CONDITION
-      ↓
-FAIL-CLOSED TRIGGER
-      ↓
-CANONICAL FAIL-CLOSED RULE
-      ↓
-BLOCK / PAUSE / REVALIDATE
-      ↓
-DEFINED RECOVERY CONDITION
-      ↓
-REVALIDATION
-      ↓
-ONLY THEN → POSSIBLE CONTINUATION
+REQUIRED COMPONENT MISSING
+        ↓
+VALID DEGRADED PATH DEFINED?
+        ├─ NO  → BLOCK
+        └─ YES → VALIDATE DEGRADED CONDITIONS
+                       ↓
+                  CONDITIONS FAIL?
+                    ├─ YES → BLOCK
+                    └─ NO  → continue to authority/authorization gates
 ```
 
-Domain documents may identify additional triggers.  
-They must **not** redefine the doctrine.
-
-## Authorization Remains Distinct
+A degraded path is not an automatic permission and MUST NOT create new authority.
 
 ```
-FAIL-CLOSED = SAFETY / CONTROL RESPONSE
-AUTHORIZATION = HUMAN-AUTHORITY DECISION
+DEGRADED PATH ≠ AUTOMATIC PERMISSION
+DEGRADED PATH ≠ NEW AUTHORITY
 ```
 
+## Critical State
+
 ```
-EXECUTE(a) ⇔
-  FLOW_BIND(a)
-  ∧ RUNTIME_MATCH(a)
-  ∧ HUMAN_AUTHORITY_BOUND(a)
-  ∧ AUTHORIZATION_VALID(a)
+CRITICAL STATE UNKNOWN → BLOCK
 ```
 
-Fail-closed conditions can prevent execution whenever those prerequisites are not satisfied.
+No assumption of safety may substitute for a required critical state.
 
-## No "Safest Available" Exception
+## Evidence
 
-Unknown critical state remains FAIL-CLOSED.  
-Language such as "continue if probably safe" or "operator may decide" is prohibited unless the decision is part of an explicitly defined and authorized degraded mode.
+```
+REQUIRED EVIDENCE INVALID → BLOCK
+REQUIRED EVIDENCE STALE   → REVALIDATE / BLOCK
+```
 
-## Temporal Application
+Evidence does not become authority merely because it is present.
 
-The same canonical rule is applied independently to:
+## Runtime
+
+```
+RUNTIME MATCH INVALID → REVALIDATE / BLOCK
+```
+
+Runtime match does not itself authorize an action.
+
+## Material Change
+
+A material change affecting execution conditions requires revalidation.
+
+```
+MATERIAL CHANGE
+→ REVALIDATE
+→ if unresolved → BLOCK / PAUSE
+```
+
+## Integrity
+
+```
+INTEGRITY FAILURE → BLOCK
+```
+
+## Authority
+
+```
+FLOW BINDING INVALID     → BLOCK
+HUMAN AUTHORITY UNBOUND  → BLOCK
+AUTHORIZATION INVALID    → BLOCK
+```
+
+## Temporal Control
+
+Fail-closed evaluation applies independently across:
 
 - BEFORE
 - DURING
 - AFTER
 
+Therefore:
+
 ```
-PASS(BEFORE) ≠ PASS(DURING) ≠ PASS(AFTER)
+BEFORE PASS ≠ DURING PASS
+DURING PASS ≠ AFTER PASS
 ```
 
-AFTER-state failure produces reconciliation/failure recording.  
-It does **not** retroactively authorize the action.
+A later successful state MUST NOT retroactively authorize an earlier action.
+
+## Degraded Operation
+
+A degraded path MUST be:
+
+- explicitly defined;
+- action-specific;
+- condition-specific;
+- bounded in scope;
+- subject to human-authority requirements;
+- subject to authorization requirements;
+- subject to revalidation;
+- recorded as degraded execution.
+
+A degraded path MUST NOT silently expand the authorized action set.
+
+## Canonical Invariant
+
+```
+FAIL_CLOSED(a, state)
+```
+
+applies whenever a critical execution prerequisite is not presently satisfied.
+
+The existence of a recovery path does not mean the action is currently authorized.
+
+## Separation
+
+```
+FAIL-CLOSED ≠ AUTHORIZATION
+FAIL-CLOSED = CONTROL RESPONSE
+AUTHORIZATION = HUMAN-AUTHORITY DECISION
+```
+
+The fail-closed mechanism may prevent execution, but it does not manufacture authorization.
+
+## Durable Record
+
+Fail-closed events MUST eventually be represented in the authoritative execution record when runtime implementation exists.
+
+Conversation memory is not the authoritative record.
+
+## Status Discipline
+
+Documentation of this rule does not constitute implementation.
+
+```
+DEFINED ≠ IMPLEMENTED
+IMPLEMENTED ≠ TESTED
+TESTED ≠ PROVEN
+PROVEN ≠ SEALED
+SEALED ≠ AUTHORIZED
+AUTHORIZED ≠ PRODUCTION_AUTHORIZED
+```
