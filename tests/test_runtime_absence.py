@@ -1,8 +1,8 @@
 """
-Explicit tests distinguishing seal *mechanism* from full SWI runtime.
+Runtime presence after V3-0007.
 
-swi_v3.seal exists (mechanism).
-Full execution gate / sensor pipeline / durable ledger runtime do not.
+Seal mechanism + runtime boundary modules exist.
+Full production authorization still does not.
 """
 import pytest
 import importlib.util
@@ -15,30 +15,35 @@ def _module_exists(name: str) -> bool:
         return False
 
 
-class TestRuntimeAbsence:
+class TestRuntimePresence:
 
-    def test_seal_mechanism_package_exists(self):
-        assert _module_exists("swi_v3") is True
+    def test_seal_package_exists(self):
         assert _module_exists("swi_v3.seal") is True
 
-    def test_no_kernel_execution_runtime(self):
-        assert _module_exists("swi_v3.kernel") is False
+    def test_runtime_package_exists(self):
+        assert _module_exists("swi_v3.runtime") is True
 
-    def test_no_authority_runtime(self):
-        assert _module_exists("swi_v3.authority") is False
+    def test_execution_gate_module_exists(self):
+        assert _module_exists("swi_v3.runtime.gate") is True
 
-    def test_no_fail_closed_runtime_module(self):
-        # Decision tables may exist in tests; production fail-closed runtime module does not.
-        assert _module_exists("swi_v3.fail_closed") is False
+    def test_observation_module_exists(self):
+        assert _module_exists("swi_v3.runtime.observation") is True
 
-    @pytest.mark.not_implemented
-    def test_runtime_execution_gate_not_implemented(self):
-        pytest.skip("BLOCKED_BY_MISSING_RUNTIME: no SWI V3 execution gate exists")
+    def test_ledger_module_exists(self):
+        assert _module_exists("swi_v3.runtime.ledger") is True
 
-    @pytest.mark.not_implemented
-    def test_runtime_sensor_pipeline_not_implemented(self):
-        pytest.skip("BLOCKED_BY_MISSING_RUNTIME: no sensor pipeline runtime exists")
+    def test_no_authority_manufacture_module(self):
+        # No module that grants production authorization
+        assert _module_exists("swi_v3.production_authorization") is False
 
     @pytest.mark.not_implemented
-    def test_runtime_durable_ledger_not_implemented(self):
-        pytest.skip("BLOCKED_BY_MISSING_RUNTIME: no durable validation ledger exists")
+    def test_distributed_ledger_backend_not_implemented(self):
+        pytest.skip("BLOCKED_BY_MISSING_RUNTIME: no durable distributed ledger backend")
+
+    @pytest.mark.not_implemented
+    def test_physical_sensor_drivers_not_implemented(self):
+        pytest.skip("BLOCKED_BY_MISSING_RUNTIME: no physical sensor drivers")
+
+    @pytest.mark.not_implemented
+    def test_production_authorization_service_not_implemented(self):
+        pytest.skip("BLOCKED_BY_MISSING_RUNTIME: no production authorization service")
