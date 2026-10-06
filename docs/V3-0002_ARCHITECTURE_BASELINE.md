@@ -1,0 +1,83 @@
+# V3-0002 Controlled Architecture Baseline
+
+**Parent:** 55d843b8f455baa80aab7e4b92d679c6d62e0a78  
+**Branch:** v3-0002-architecture-baseline  
+**Status:** DEFINED / PARTIALLY IMPLEMENTED AS CONTRACTS  
+**PROVEN:** NO  
+**SEALED:** NO  
+**AUTHORIZED:** NO  
+**PRODUCTION_AUTHORIZED:** NO
+
+## Purpose
+
+Establish the controlled architecture contracts required for V3 continuation of V2 without automatically inheriting V2 claims, seals, or authorization.
+
+## Dependency Order (required)
+
+```
+CONTINUATION
+↓
+INHERITANCE BASELINE
+↓
+CONVERSATION TRACEABILITY
+↓
+AUTHORITY BOUNDARY
+↓
+HARDWARE
+↓
+SENSOR
+↓
+ENVIRONMENT
+↓
+BEFORE / DURING / AFTER
+↓
+RUNTIME MATCH
+↓
+EXPECTED MATCH DRIFT
+↓
+MATERIAL CHANGE
+↓
+REVALIDATION
+↓
+FAIL-CLOSED
+↓
+EXECUTION BINDING
+↓
+POST-OPERATION RECONCILIATION
+↓
+DURABLE RECORD
+↓
+VALIDATION STATUS
+```
+
+## Core Rule
+
+```
+V2 EXISTS ≠ V3 EXISTS
+V2 TESTED ≠ V3 TESTED
+V2 PROVEN ≠ V3 PROVEN
+V2 AUTHORIZED ≠ V3 AUTHORIZED
+```
+
+## Authority Gate (non-negotiable)
+
+```
+EXECUTE(a) ⇔
+  FLOW_BIND(a)
+  ∧ RUNTIME_MATCH(a)
+  ∧ HUMAN_AUTHORITY_BOUND(a)
+  ∧ AUTHORIZATION_VALID(a)
+```
+
+No shortcut is permitted.
+
+## Status Discipline
+
+```
+DEFINED ≠ IMPLEMENTED
+IMPLEMENTED ≠ TESTED
+TESTED ≠ PROVEN
+PROVEN ≠ SEALED
+SEALED ≠ AUTHORIZED
+AUTHORIZED ≠ PRODUCTION_AUTHORIZED
+```
