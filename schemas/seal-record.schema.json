@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swi.local/schemas/seal-record.schema.json",
+  "title": "SWI Seal Record",
+  "type": "object",
+  "required": [
+    "seal_id",
+    "seal_type",
+    "subject",
+    "policy_version",
+    "contract_manifest_hash",
+    "status_snapshot",
+    "created_at",
+    "state"
+  ],
+  "properties": {
+    "seal_id": { "type": "string", "minLength": 1 },
+    "seal_type": {
+      "type": "string",
+      "enum": ["STRUCTURED", "RUNTIME", "TEST_SEAL"]
+    },
+    "subject": {
+      "type": "object",
+      "required": ["commit_sha"],
+      "properties": {
+        "commit_sha": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+        "tree_sha": { "type": "string" },
+        "subject_id": { "type": "string" },
+        "subject_version": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "policy_version": { "type": "string", "minLength": 1 },
+    "contract_manifest_hash": { "type": "string", "minLength": 1 },
+    "test_manifest_hash": { "type": ["string", "null"] },
+    "status_snapshot": { "type": "object" },
+    "created_at": { "type": "string" },
+    "state": {
+      "type": "string",
+      "enum": [
+        "UNSEALED",
+        "SEAL_ELIGIBLE",
+        "SEAL_CREATED",
+        "SEAL_VERIFIED",
+        "ACTIVE",
+        "INVALIDATED",
+        "REVALIDATION_REQUIRED",
+        "FAILED"
+      ]
+    },
+    "invalidated_at": { "type": ["string", "null"] },
+    "invalidation_reason": { "type": ["string", "null"] }
+  },
+  "additionalProperties": false
+}
