@@ -1,0 +1,22 @@
+{
+  "repository": "openai/math",
+  "source_commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+  "source_commit_message": "Initial commit",
+  "source_date_utc": "2026-10-06T21:58:50Z",
+  "primary_sources": [
+    "README.md",
+    "CONTENTS.md",
+    "overview.pdf / overview.tex",
+    "lean/formalization.yaml",
+    "lean/README.md",
+    "preprints/"
+  ],
+  "readme_claims": {
+    "manuscripts": 722,
+    "result_families": 372,
+    "verification_stages": "mixed",
+    "all_manuscripts_formalized": false,
+    "unformalized_may_have_issues": true
+  },
+  "audit_freeze_note": "Do not re-bind this audit to a later main tip without recording a new source_commit and re-running catalogue tests."
+}

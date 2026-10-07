@@ -1,0 +1,23 @@
+{
+  "subject": "OpenAI Math repository",
+  "repository": "openai/math",
+  "branch": "main",
+  "source_commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+  "audit_date": "2026-10-07",
+  "expected_result_families": 372,
+  "expected_manuscripts": 722,
+  "observed_lean_linked_families": 235,
+  "observed_formalization_source_entries": 162,
+  "observed_comparator_configurations": 185,
+  "count_note": "Lean-linked, formalization, and comparator counts are secondary observations from CONTENTS.md / lean/formalization.yaml as of 2026-10-06 external reporting; not interchangeable with 372 families.",
+  "authority_status": "NOT_BOUND",
+  "authorization_status": "NOT_AUTHORIZED",
+  "mathematical_verification_status": "NOT_ESTABLISHED",
+  "production_authorized": false,
+  "swi_status": {
+    "PROVEN": "LIMITED_TO_REPOSITORY_OBSERVATIONS",
+    "SEALED": false,
+    "AUTHORIZED": false,
+    "PRODUCTION_AUTHORIZED": false
+  }
+}

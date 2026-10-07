@@ -1,0 +1,55 @@
+{
+  "portfolio": {
+    "families": 372,
+    "manuscripts": 722,
+    "lean_linked_families": 235,
+    "formalization_source_entries": 162,
+    "comparator_configurations": 185,
+    "evidence_status": "CATALOGUE_OBSERVED",
+    "authority": "NOT_BOUND",
+    "authorization": "NOT_AUTHORIZED",
+    "drift_status": "BLOCKED"
+  },
+  "inequalities": [
+    "372_families != 235_lean_linked",
+    "235_lean_linked != 162_formalization_entries",
+    "162_formalization_entries != 185_comparators",
+    "372_families != 372_verified_results",
+    "formalization != human_review",
+    "machine_check != authority",
+    "evidence_exists != permit"
+  ],
+  "sample_families": [
+    {
+      "family_id": "001",
+      "family_title": "Milne's rationality conjecture for abelian varieties",
+      "discipline": "Number theory",
+      "manuscript": "OBSERVED",
+      "lean_document": "UNKNOWN",
+      "formalization": "UNKNOWN",
+      "comparator": "UNKNOWN",
+      "human_review": "NOT_ESTABLISHED",
+      "authority": "NOT_BOUND",
+      "authorization": "NOT_AUTHORIZED",
+      "evidence_status": "CATALOGUE_OBSERVED",
+      "drift_status": "BLOCKED"
+    },
+    {
+      "family_id": "003",
+      "family_title": "Quasi-Riemann / zero-free region related claims",
+      "discipline": "Number theory",
+      "manuscript": "OBSERVED",
+      "lean_document": "PARTIAL",
+      "formalization": "PARTIAL",
+      "comparator": "UNKNOWN",
+      "human_review": "NOT_ESTABLISHED",
+      "authority": "NOT_BOUND",
+      "authorization": "NOT_AUTHORIZED",
+      "evidence_status": "MIXED_MATURITY",
+      "drift_status": "BLOCKED",
+      "notes": "External reports of Lean presence do not establish SWI authorization."
+    }
+  ],
+  "individual_372_row_matrix": "NOT_BUILT",
+  "notes": "Full 372-row matrix is a subsequent extraction task from CONTENTS.md + overview; this package freezes portfolio observations and boundary tests only."
+}
