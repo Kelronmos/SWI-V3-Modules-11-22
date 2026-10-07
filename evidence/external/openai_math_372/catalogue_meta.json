@@ -1,0 +1,20 @@
+{
+  "source_commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+  "parser": "contents_md_family_header_v1",
+  "contents_sha256": "c492802b53fb4c4161e45fc678bb67bd526add72ca2635493a367ff7fb860bf9",
+  "formalization_yaml_sha256": "2dcbd0d6e6a22475f53d49bfdfcac9b6d2b470653c332a9f56522f5be166edb9",
+  "family_count": 372,
+  "unique_family_ids": 372,
+  "manuscript_link_count": 721,
+  "formalization_source_entry_count": 162,
+  "id_range": {"min": "001", "max": "377"},
+  "missing_ids_in_range": ["045", "061", "070", "123", "163"],
+  "authority_status": "NOT_BOUND",
+  "authorization_status": "NOT_AUTHORIZED",
+  "mathematical_verification_status": "NOT_ESTABLISHED",
+  "formalization_link_heuristic_note": "PARTIAL formalization flags are path-token heuristics only; not machine-check proof.",
+  "families_artifact": "evidence/external/openai_math_372/families.csv",
+  "parser_reproduces_family_count": 372,
+  "readme_manuscripts": 722,
+  "manuscript_link_vs_readme_note": "CONTENTS.md yielded 721 unique preprint PDF links vs README claim of 722 manuscripts; delta recorded, not forced."
+}
