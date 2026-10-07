@@ -12,9 +12,11 @@
   "authority_status": "NOT_BOUND",
   "authorization_status": "NOT_AUTHORIZED",
   "mathematical_verification_status": "NOT_ESTABLISHED",
-  "formalization_link_heuristic_note": "PARTIAL formalization flags are path-token heuristics only; not machine-check proof.",
-  "families_artifact": "evidence/external/openai_math_372/families.csv",
+  "families_artifact": "evidence/external/openai_math_372/families_part_a.ndjson + families_part_b.ndjson",
+  "families_ndjson_sha256": "c8d7992edeab4a5583797910adec39de1c780d6ccd1f9c51c8ca2f97eacaf185",
+  "families_ndjson_row_count": 372,
   "parser_reproduces_family_count": 372,
   "readme_manuscripts": 722,
-  "manuscript_link_vs_readme_note": "CONTENTS.md yielded 721 unique preprint PDF links vs README claim of 722 manuscripts; delta recorded, not forced."
+  "replay_status": "NOT_ESTABLISHED",
+  "open_015_status": "PLAN_RECORDED_NOT_EXECUTED"
 }

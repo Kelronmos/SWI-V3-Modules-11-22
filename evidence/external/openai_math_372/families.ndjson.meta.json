@@ -1,0 +1,17 @@
+{
+  "format": "ndjson",
+  "fields": {
+    "id": "family_id",
+    "title": "title",
+    "ms": "manuscript_count",
+    "f": "formalization P=PARTIAL U=UNKNOWN",
+    "a": "NB=NOT_BOUND",
+    "z": "NA=NOT_AUTHORIZED",
+    "d": "B=BLOCKED"
+  },
+  "row_count": 372,
+  "sha256": "c8d7992edeab4a5583797910adec39de1c780d6ccd1f9c51c8ca2f97eacaf185",
+  "authority_status": "NOT_BOUND",
+  "authorization_status": "NOT_AUTHORIZED",
+  "mathematical_verification_status": "NOT_ESTABLISHED"
+}
