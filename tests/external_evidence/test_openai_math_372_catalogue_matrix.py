@@ -43,8 +43,11 @@ class TestCatalogueMetaFreeze:
     def test_mathematical_verification_not_established(self, meta):
         assert meta["mathematical_verification_status"] == "NOT_ESTABLISHED"
 
-    def test_replay_not_established(self, meta):
-        assert meta.get("replay_status", "NOT_ESTABLISHED") == "NOT_ESTABLISHED"
+    def test_open015_replay_pass_is_not_authorization(self, meta):
+        # OPEN-015 may set replay PASS for catalogue extraction only
+        assert meta.get("replay_status") in ("PASS", "NOT_ESTABLISHED")
+        assert meta["authorization_status"] == "NOT_AUTHORIZED"
+        assert meta["mathematical_verification_status"] == "NOT_ESTABLISHED"
 
 
 class TestOptionalNdjsonMatrix:
