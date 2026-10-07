@@ -1,32 +1,21 @@
 {
   "gap_id": "OPEN-015",
   "title": "Catalogue secondary-count and dual-run replay plan",
-  "status": "PLAN_RECORDED",
-  "executed": false,
-  "replay_status": "NOT_ESTABLISHED",
+  "status": "EXECUTED",
+  "executed": true,
+  "replay_status": "PASS",
   "source_repository": "openai/math",
   "source_commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
-  "audit_date": "2026-10-07",
+  "execution_record": "evidence/external/openai_math_372/open_015_execution_record.json",
   "methods": {
-    "contents_md_family_header_v1": {"target": "families", "status": "BASELINE_RECORDED"},
-    "contents_md_pdf_link_v1": {"target": "manuscript_pdf_links", "status": "BASELINE_RECORDED"},
-    "formalization_yaml_sources_v1": {"target": "formalization_entries", "status": "BASELINE_RECORDED"},
-    "contents_lean_link_v1": {"target": "lean_linked_families", "status": "UNKNOWN_METHOD"},
-    "comparator_config_v1": {"target": "comparator_entries", "status": "UNKNOWN_METHOD"}
-  },
-  "baseline_observations": {
-    "contents_sha256": "c492802b53fb4c4161e45fc678bb67bd526add72ca2635493a367ff7fb860bf9",
-    "formalization_yaml_sha256": "2dcbd0d6e6a22475f53d49bfdfcac9b6d2b470653c332a9f56522f5be166edb9",
-    "family_count": 372,
-    "manuscript_link_count": 721,
-    "formalization_source_entry_count": 162,
-    "lean_linked_families": null,
-    "comparator_entries": null,
-    "note": "235 and 185 are not sealed; null until method defined and dual-run complete"
+    "contents_md_family_header_v1": {"target": "families", "status": "REPRODUCED"},
+    "contents_md_pdf_link_v1": {"target": "manuscript_pdf_links", "status": "REPRODUCED"},
+    "formalization_yaml_sources_v1": {"target": "formalization_entries", "status": "REPRODUCED"},
+    "contents_md_lean_docs_link_v1": {"target": "lean_linked_docs", "status": "REPRODUCED", "count": 235},
+    "formalization_yaml_status_main_results_v1": {"target": "comparator_main_results", "status": "REPRODUCED", "count": 185}
   },
   "authority_status": "NOT_BOUND",
   "authorization_status": "NOT_AUTHORIZED",
   "mathematical_verification_status": "NOT_ESTABLISHED",
-  "production_authorized": false,
-  "plan_document": "docs/external-evidence/mathematics/OPENAI-MATH-372-OPEN-015-REPLAY-PLAN.md"
+  "production_authorized": false
 }

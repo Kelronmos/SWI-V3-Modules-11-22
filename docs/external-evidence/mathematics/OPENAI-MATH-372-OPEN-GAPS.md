@@ -16,15 +16,26 @@
 | OPEN-012 | Runtime revalidation | OPEN |
 | OPEN-013 | License scope for storage beyond metadata | OPEN |
 | OPEN-014 | Attribution requirements formalized in SWI | OPEN |
-| OPEN-015 | Catalogue population counts + dual-run structured-output hash | **CLOSED for populations 372/721/162/235/185 — REPLAY PASS (observation only)** |
+| OPEN-015 | Catalogue population counts + dual-run structured-output hash | **EXECUTED — REPLAY PASS (observation only)** |
+
+### OPEN-015 population table
+
+| Population | Result |
+|------------|--------|
+| 372 families | REPRODUCED |
+| 721 PDF links | REPRODUCED |
+| 162 formalization sources | REPRODUCED |
+| 235 lean/docs links | REPRODUCED |
+| 185 main_results / comparators | REPRODUCED |
+| Replay | PASS |
 
 OPEN-015 does **not** close OPEN-001…014.
 
 ```
-CATALOGUE POPULATIONS: REPRODUCED
-REPLAY (extraction):   PASS
-MATHEMATICS:           NOT PROVEN
-AUTHORITY:             NOT BOUND
-AUTHORIZATION:         NOT AUTHORIZED
-PRODUCTION:            NOT AUTHORIZED
+MATHEMATICS:           NOT_ESTABLISHED
+HUMAN_REVIEW:          NOT_ESTABLISHED
+GOVERNANCE_BINDING:    NOT_ESTABLISHED
+AUTHORITY_BOUND:       NO
+PRODUCTION_AUTHORIZATION: NO
+SEALED:                NO
 ```
