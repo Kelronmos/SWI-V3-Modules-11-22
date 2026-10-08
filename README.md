@@ -7,6 +7,13 @@ SWI V3 is a controlled continuation of SWI V2.
 V3 is not treated as a rewrite and does not automatically inherit
 V2 claims, authorization, proof, seals, or production status.
 
+## Vision and Mission
+
+Canonical statement: [docs/SWI-VISION-AND-MISSION.md](docs/SWI-VISION-AND-MISSION.md)
+
+Vision and mission are governance documentation only.
+They do not constitute implementation, proof, seal, authorization, or production readiness.
+
 ## Core continuation rule
 
 V2 history may be inherited as historical input.
