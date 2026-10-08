@@ -4,8 +4,8 @@
 
 ```
 DEFINED: YES
-IMPLEMENTED: YES (library interface)
-TESTED: YES (unit tests)
+IMPLEMENTED: YES (library + runtime.evaluate_hardware)
+TESTED: YES (unit + integration)
 PROVEN: NO
 SEALED: NO
 AUTHORIZED: NO
@@ -14,42 +14,23 @@ PRODUCTION_AUTHORIZED: NO
 
 ## Purpose
 
-Provide a technical interface to check and verify hardware/environment
-specifications for an operation.
+Technical interface to check and verify hardware/environment specifications.
 
 ```
 HARDWARE_GREEN ≠ AUTHORIZATION
 SENSOR_PASS ≠ AUTHORIZATION
-CAPABILITY ≠ PERMISSION
 RUNTIME_DISCOVERY ⊬ WORKFLOW_SCOPE_EXPANSION
 ```
 
-## Module
+## Kernel integration
 
-`swi_v3.hardware`
+`RuntimeEngine.evaluate_hardware(...)` → ledger `HARDWARE_CHECK`
 
-- `SpecChecker` — measurement vs ComponentSpec
-- `HardwareBindInterface.evaluate(...)` — aggregate bind result
-- `WorkflowScopeLock` — fixed component set while ACTIVE
+`RuntimeEngine.observe_and_gate(..., hardware_bind=...)` may feed technical failure into fail-closed signals; it must not set authorization from hardware green.
 
-## Specs must come from
+## Launchers
 
-COMPONENT DATASHEET + SYSTEM SPEC + OPERATION SPEC
-
-Do not invent universal voltage/current/drift thresholds in SWI core.
-
-## Relation to execution gate
-
-```
-EXECUTE(a) ⟺
-  FLOW_BIND(a)
-  ∧ RUNTIME_MATCH(a)
-  ∧ HUMAN_AUTHORITY_BOUND(a)
-  ∧ AUTHORIZATION_VALID(a)
-```
-
-`HARDWARE_GREEN` is an environmental/hardware predicate only.
-It does not mint a permit.
+See `docs/HARDWARE_TEST_LAUNCHERS.md` and `tools/start_hardware_test.{sh,bat}`.
 
 ## Does not close
 
