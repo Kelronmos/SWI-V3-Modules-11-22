@@ -1,12 +1,5 @@
 {
   "format": "ndjson",
-  "source_commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
-  "source_file": "CONTENTS.md",
-  "parser": "contents_md_family_header_v1",
-  "row_count": 372,
-  "part_a_rows": 186,
-  "part_b_rows": 186,
-  "sha256": "03a3362b1517002a99aba2de6b50c2144aaad1216cf0a2adc22621fc54a37605",
   "fields": {
     "id": "family_id",
     "title": "title",
@@ -16,7 +9,12 @@
     "z": "NA=NOT_AUTHORIZED",
     "d": "B=BLOCKED"
   },
+  "row_count": 372,
+  "part_a_rows": 186,
+  "part_b_rows": 186,
+  "sha256": "749e92255d697b878b321ef49e4531d118c330292833391389e981a95cc3d5f5",
   "authority_status": "NOT_BOUND",
   "authorization_status": "NOT_AUTHORIZED",
-  "mathematical_verification_status": "NOT_ESTABLISHED"
+  "mathematical_verification_status": "NOT_ESTABLISHED",
+  "source_commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a"
 }
