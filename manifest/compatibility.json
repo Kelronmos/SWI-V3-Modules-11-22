@@ -1,0 +1,26 @@
+{
+  "android_min_api": 30,
+  "termux": {
+    "required_packages": [
+      "python", "git", "clang", "openssl", "libffi", "curl", "jq", "coreutils", "findutils"
+    ],
+    "optional_packages": ["termux-api", "openjdk-17", "rust", "cmake", "ninja"]
+  },
+  "python": {
+    "min": "3.10",
+    "stdlib_only_core": true
+  },
+  "kernel": {
+    "mode": "userspace_observation_only",
+    "claims_kernel_flash": false,
+    "claims_bootloader_access": false
+  },
+  "v2_inheritance": {
+    "history": "historical_input_only",
+    "status_auto_promote": false
+  },
+  "cek": {
+    "role": "independent_evaluator",
+    "can_authorize_swi": false
+  }
+}
