@@ -1,0 +1,30 @@
+{
+  "name": "SWI-V3-PATCH-FOUNDATION",
+  "version": "0.1.0-foundation",
+  "date": "2026-11-12",
+  "branch": "feature/swi-v3-patch-foundation-2026-11-12",
+  "base_commit": "55d843b8f455baa80aab7e4b92d679c6d62e0a78",
+  "purpose": "Integrated SWI V3 installation, recovery, kernel-interface, Frontier and CEK foundation",
+  "platform": ["Android", "Termux", "Linux-userspace"],
+  "defaults": {
+    "PROVEN": "NO",
+    "SEALED": "NO",
+    "PRODUCTION_AUTHORIZED": "NO"
+  },
+  "dependencies": {
+    "python": ">=3.10",
+    "optional": ["termux-api"]
+  },
+  "related_repositories": {
+    "v3": "Kelronmos/SWI-V3-Modules-11-22",
+    "v2": "Kelronmos/SWI-V2-Modules-11-22",
+    "android": "Kelronmos/SWI-Android-Prototype",
+    "cek": "Kelronmos/Cek"
+  },
+  "non_claims": [
+    "Compilation is not proof",
+    "Userspace Termux is not kernel installation",
+    "Observation is not authorization",
+    "Checksum match is not correctness"
+  ]
+}
