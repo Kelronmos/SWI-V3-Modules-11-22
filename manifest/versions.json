@@ -1,0 +1,22 @@
+{
+  "foundation_version": "0.1.0-foundation",
+  "governance_contract": "governing_permit_v0",
+  "hardware_identity_spec": "docs/SWI-HARDWARE-IDENTITY-SPECIFICATION.md",
+  "components": {
+    "governance": "0.1.0",
+    "recovery": "0.1.0",
+    "kernel_interface": "0.1.0-userspace",
+    "frontier": "0.1.0",
+    "cek_adapter": "0.1.0",
+    "patch_manager": "0.1.0",
+    "installer": "0.1.0"
+  },
+  "status": {
+    "NAMED": true,
+    "IMPLEMENTED": "partial",
+    "TESTED": "partial",
+    "PROVEN": false,
+    "SEALED": false,
+    "PRODUCTION_AUTHORIZED": false
+  }
+}
